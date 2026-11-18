@@ -182,9 +182,9 @@
             <h3>Double Descent in High-Dimensional Regression</h3>
             <p class="card__meta">Research · Python · PyTorch · NumPy · 2026</p>
             <ul class="card__points">
-              <li>Data pipeline extracting ResNet-18/50 embeddings from house photos, aligned with prices and cached for every experiment.</li>
-              <li>Swept sample size and model size in NumPy, averaging over random train/test splits.</li>
-              <li>A covariance-matched Gaussian twin reproduced the real learning curve and its <i>n = d</i> peak (Loureiro et al., 2021).</li>
+              <li>Goal: find a real-world dataset that shows double descent. Predicting house prices from photos, using pretrained ResNet-18/50 embeddings as features, does.</li>
+              <li>Swept sample size and model size in NumPy, averaging over random train/test splits, to trace the real learning curves and their peak.</li>
+              <li>Then replicated the real behavior with a covariance-matched Gaussian twin, following Loureiro et al. (2021), which reproduced the curve and its <i>n = d</i> peak.</li>
             </ul>
             <p class="card__note">Chart: my simulation of min-norm least squares on Gaussian features, n = 60, showing the peak at p = n.</p>
           </div>
@@ -298,7 +298,7 @@ void StompProtocol::notifyServerResponse(){
       <div class="codepanel" role="tabpanel" id="panel-dd" aria-labelledby="tab-dd" hidden>
         <article class="snip">
           <h3>A covariance-matched Gaussian twin</h3>
-          <p>One thin SVD of the real ResNet features gives their covariance spectrum and a least-squares teacher. Sampling Gaussians with that exact covariance and signal isolates second-order statistics as the only shared ingredient.</p>
+          <p>Following Loureiro et al. (2021): one thin SVD of the real ResNet features gives their covariance spectrum and a least-squares teacher. Sampling Gaussians with that covariance and signal produces a twin whose learning curve can be compared with the real one.</p>
           <figure class="code">
             <figcaption>double_descent_research.ipynb · cell 9, excerpt</figcaption>
             <pre tabindex="0"><code class="language-python">U, s, Vt = np.linalg.svd(X_c, full_matrices=False)
@@ -370,9 +370,9 @@ def sample_twin(n, rng):
           <article class="research__item">
             <h3>Double Descent on Real Image Features</h3>
             <p class="research__when">2026 · Python · PyTorch · NumPy</p>
-            <p>Does a regression on pretrained image embeddings show double descent because of the data’s second-order statistics alone? I built a Gaussian twin with the exact covariance and linear signal of real ResNet features and compared their learning curves.</p>
+            <p>Double descent is easy to produce on synthetic data, but harder to find in the wild. The project had two steps. First, find a real-world dataset that shows it: house-price prediction from photos, with pretrained ResNet embeddings as features. Second, replicate that real behavior with a Gaussian twin, following Loureiro et al. (2021): synthetic data with the same covariance and linear signal as the real features.</p>
             <ul class="research__facts">
-              <li>Both curves peak at the interpolation threshold, at p = n<sub>train</sub> and n = d, with a bias–variance breakdown.</li>
+              <li>The twin reproduced the real learning curves, peaking at the interpolation threshold (p = n<sub>train</sub> and n = d), with a bias–variance breakdown.</li>
               <li>No preprocessing leakage: every split is centered with the training mean only; all runs are seeded.</li>
             </ul>
           </article>
