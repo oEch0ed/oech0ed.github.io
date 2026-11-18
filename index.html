@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ohad Dahan · Software Engineer</title>
+  <meta name="description" content="Ohad Dahan: Computer Science student at Ben-Gurion University (GPA 95.28), building concurrent systems and doing ML research. Open to student software engineering, machine learning and automation roles.">
+  <meta name="theme-color" content="#0d0e10">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d0e10'/%3E%3Ctext x='32' y='45' font-family='Arial Narrow,sans-serif' font-weight='800' font-size='34' text-anchor='middle' fill='%23e8eaee'%3EOD%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Hanken+Grotesk:wght@400;500;600&family=Azeret+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></symbol>
+      <symbol id="i-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></symbol>
+      <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></symbol>
+      <symbol id="i-trend" viewBox="0 0 24 24"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol>
+      <symbol id="i-cpu" viewBox="0 0 24 24"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></symbol>
+      <symbol id="i-network" viewBox="0 0 24 24"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></symbol>
+      <symbol id="i-flask" viewBox="0 0 24 24"><path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2"/><path d="M6.453 15h11.094"/><path d="M8.5 2h7"/></symbol>
+      <symbol id="i-sigma" viewBox="0 0 24 24"><path d="M18 7V5a1 1 0 0 0-1-1H6.5a.5.5 0 0 0-.4.8l4.5 6a2 2 0 0 1 0 2.4l-4.5 6a.5.5 0 0 0 .4.8H17a1 1 0 0 0 1-1v-2"/></symbol>
+      <symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-.6c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
+      <symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="mono" href="#top" aria-label="Ohad Dahan, back to top">OD</a>
+      <nav aria-label="Sections">
+        <ul class="nav__links">
+          <li><a href="#work">Work</a></li>
+          <li><a href="#code">Code</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#grades">Grades</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+      <a class="pill pill--light pill--sm" href="#contact">Let’s talk <svg class="ic"><use href="#i-arrow"/></svg></a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-name">
+      <div class="wrap hero__inner">
+        <h1 class="hero__name" id="hero-name">
+          <span class="hero__line">Ohad</span>
+          <span class="hero__line">Dahan</span>
+        </h1>
+        <img class="hero__portrait" src="assets/portrait.png" width="1000" height="1000" alt="Portrait of Ohad Dahan wearing glasses and a white T-shirt">
+        <div class="hero__copy">
+          <p class="hero__lede">Computer Science student at Ben-Gurion University. I build concurrent systems in Java and C++ and do machine-learning research in transfer learning.</p>
+          <div class="hero__actions">
+            <a class="pill pill--light" href="#work">View my work <svg class="ic"><use href="#i-arrow"/></svg></a>
+            <a class="textlink" href="assets/Ohad_Dahan_CV.pdf" download>Download CV <svg class="ic"><use href="#i-download"/></svg></a>
+          </div>
+        </div>
+        <p class="hero__status"><span class="hero__status-big">Open to</span> student SWE, ML &amp; automation roles</p>
+      </div>
+    </section>
+
+    <section class="wrap stats" aria-label="Academic record at a glance">
+      <dl class="stats__panel">
+        <div class="stat">
+          <svg class="ic ic--lg" aria-hidden="true"><use href="#i-cap"/></svg>
+          <dt>Cumulative GPA</dt>
+          <dd>95.28</dd>
+        </div>
+        <div class="stat">
+          <svg class="ic ic--lg" aria-hidden="true"><use href="#i-trophy"/></svg>
+          <dt>Courses graded 100</dt>
+          <dd>5</dd>
+        </div>
+        <div class="stat">
+          <svg class="ic ic--lg" aria-hidden="true"><use href="#i-trend"/></svg>
+          <dt>Year-two average</dt>
+          <dd>96.9</dd>
+        </div>
+        <div class="stat">
+          <svg class="ic ic--lg" aria-hidden="true"><use href="#i-book"/></svg>
+          <dt>Credits earned</dt>
+          <dd>86.5</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="wrap section" id="work" aria-labelledby="work-title">
+      <div class="section__head">
+        <h2 id="work-title">Featured work</h2>
+        <a class="textlink" href="https://github.com/oEch0ed" rel="noopener">GitHub profile <svg class="ic"><use href="#i-arrow"/></svg></a>
+      </div>
+
+      <div class="work">
+        <article class="card">
+          <figure class="card__art" aria-hidden="true">
+            <svg viewBox="0 0 400 240" class="art">
+              <g class="art__tree">
+                <rect x="20" y="30" width="96" height="30" rx="6"/><text x="68" y="50">repo/*.py</text>
+                <path d="M68 60v16"/>
+                <rect x="20" y="76" width="96" height="30" rx="6"/><text x="68" y="96">ast chunks</text>
+                <path d="M68 106v16"/>
+                <rect x="20" y="122" width="96" height="30" rx="6"/><text x="68" y="142">vectors</text>
+                <path d="M68 152v16"/>
+                <rect x="20" y="168" width="96" height="30" rx="6"/><text x="68" y="188">index.json</text>
+                <path d="M116 91h28"/>
+                <rect x="144" y="40" width="236" height="160" rx="8"/>
+              </g>
+              <g class="art__frames art__code">
+                <text x="158" y="64">def chunk_source(source, path):</text>
+                <text x="158" y="82">    tree = ast.parse(source)</text>
+                <text x="158" y="100">    for node in tree.body:</text>
+                <text x="158" y="118">        ...</text>
+                <text x="158" y="160" class="hi">→ src/analyst/chunk.py:60–76</text>
+                <text x="158" y="180">  kind=function · 1-based lines</text>
+              </g>
+            </svg>
+          </figure>
+          <div class="card__body">
+            <h3>Codebase Analyst</h3>
+            <p class="card__meta">Python · Gemini API · Pydantic · pytest · 2026 · in progress</p>
+            <ul class="card__points">
+              <li>An AI agent that answers questions about a codebase, with every claim backed by verified file and line citations.</li>
+              <li>AST-based chunker splits each file into function, class, method and module chunks with exact line ranges, so answers can cite precise locations.</li>
+              <li>Batched Gemini embeddings and a saved index that refuses to load if the embedding model changed. Strictly typed (mypy strict) and unit-tested; retrieval and the answering agent are next.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card">
+          <figure class="card__art" aria-hidden="true">
+            <svg viewBox="0 0 400 240" class="art">
+              <g class="art__tree">
+                <rect x="150" y="96" width="100" height="48" rx="8"/>
+                <text x="200" y="117">STOMP 1.2</text>
+                <text x="200" y="133" class="art__sub">Reactor · NIO</text>
+                <rect x="26" y="34" width="84" height="30" rx="6"/><text x="68" y="54">client A</text>
+                <rect x="26" y="176" width="84" height="30" rx="6"/><text x="68" y="196">client B</text>
+                <rect x="290" y="34" width="84" height="30" rx="6"/><text x="332" y="54">client C</text>
+                <rect x="290" y="176" width="84" height="30" rx="6"/><text x="332" y="196">SQLite</text>
+                <path d="M110 49c30 0 40 47 40 59M110 191c30 0 40-47 40-59M250 108c0-12 10-59 40-59M250 132c0 12 10 59 40 59"/>
+              </g>
+              <g class="art__frames">
+                <text x="118" y="82">SUBSCRIBE /topic/game</text>
+                <text x="282" y="160" class="hi">MESSAGE</text>
+              </g>
+            </svg>
+          </figure>
+          <div class="card__body">
+            <h3>STOMP Pub/Sub Messaging System</h3>
+            <p class="card__meta">Java · C++ · Python · SQLite · 2025–26</p>
+            <ul class="card__points">
+              <li>Multi-client publish/subscribe server implementing STOMP 1.2, with thread-per-client and Reactor (NIO) models behind one connections layer.</li>
+              <li>Multithreaded C++ client with separate keyboard and socket threads that rebuilds time-ordered game state from other users’ reports.</li>
+              <li>Users, sessions and reports persisted in SQLite via a Python SQL service.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card">
+          <figure class="card__art" aria-hidden="true">
+            <svg viewBox="0 0 400 240" class="art art--chart">
+              <path class="art__axis" d="M16 16v208h368"/>
+              <path class="art__peak" d="M123.3 16v208"/>
+              <text class="art__lbl" x="131" y="56">p = n</text>
+              <path class="art__curve" d="M16.0,215.0 L23.7,210.9 L31.3,209.5 L39.0,207.2 L46.7,204.8 L54.3,201.2 L62.0,193.8 L69.7,190.7 L77.3,185.4 L85.0,178.1 L92.7,169.9 L100.3,161.4 L108.0,140.8 L115.7,111.2 L123.3,18.7 L131.0,104.9 L138.7,139.6 L146.3,153.0 L154.0,157.8 L161.7,167.1 L169.3,178.6 L177.0,182.1 L184.7,190.8 L192.3,189.4 L200.0,192.2 L207.7,197.5 L215.3,199.5 L223.0,199.3 L230.7,203.4 L238.3,204.1 L246.0,206.6 L253.7,206.6 L261.3,212.0 L269.0,211.1 L276.7,213.0 L284.3,212.5 L292.0,211.6 L299.7,214.9 L307.3,213.6 L315.0,213.0 L322.7,212.6 L330.3,218.4 L338.0,216.5 L345.7,217.5 L353.3,216.7 L361.0,217.8 L368.7,219.1 L376.3,217.8 L384.0,218.7"/>
+              <text class="art__lbl art__end" x="380" y="200">features p →</text>
+              <text class="art__lbl art__end" x="380" y="30">test error (log scale)</text>
+            </svg>
+          </figure>
+          <div class="card__body">
+            <h3>Double Descent in High-Dimensional Regression</h3>
+            <p class="card__meta">Research · Python · PyTorch · NumPy · 2026</p>
+            <ul class="card__points">
+              <li>Data pipeline extracting ResNet-18/50 embeddings from house photos, aligned with prices and cached for every experiment.</li>
+              <li>Swept sample size and model size in NumPy, averaging over random train/test splits.</li>
+              <li>A covariance-matched Gaussian twin reproduced the real learning curve and its <i>n = d</i> peak (Loureiro et al., 2021).</li>
+            </ul>
+            <p class="card__note">Chart: my simulation of min-norm least squares on Gaussian features, n = 60, showing the peak at p = n.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap section" id="code" aria-labelledby="code-title">
+      <div class="section__head">
+        <h2 id="code-title">Inside the code</h2>
+        <p class="section__aside">Real excerpts from each project, with their files and line numbers.</p>
+      </div>
+      <div class="seg codetabs" role="tablist" aria-label="Project">
+        <button type="button" class="seg__btn" role="tab" id="tab-analyst" aria-controls="panel-analyst" aria-selected="true" aria-pressed="true">Codebase Analyst</button>
+        <button type="button" class="seg__btn" role="tab" id="tab-stomp" aria-controls="panel-stomp" aria-selected="false" aria-pressed="false" tabindex="-1">STOMP Messaging</button>
+        <button type="button" class="seg__btn" role="tab" id="tab-dd" aria-controls="panel-dd" aria-selected="false" aria-pressed="false" tabindex="-1">Double Descent</button>
+      </div>
+      <div class="codepanel" role="tabpanel" id="panel-analyst" aria-labelledby="tab-analyst">
+        <article class="snip">
+          <h3>Code-aware chunking</h3>
+          <p>Instead of cutting files into fixed-size windows, the analyst parses each file into an AST and makes one chunk per function, class, method and module, with exact 1-based line ranges, so every answer can cite precise locations.</p>
+          <figure class="code">
+            <figcaption>src/analyst/chunk.py · lines 60–76</figcaption>
+            <pre tabindex="0"><code class="language-python">def chunk_source(source: str, path: Path) -&gt; list[Chunk]:
+    lines = source.splitlines()
+    chunks = []
+    tree = ast.parse(source, filename=str(path))
+
+    for node in tree.body:
+        if isinstance(node, ast.ClassDef):
+            chunks.extend(_class_chunks(node, lines, path))
+
+        elif isinstance(node, DefNode):
+            chunks.append(_def_chunks(node, lines, path))
+
+    module = _module_chunk(tree, lines, path)
+    if module is not None:
+        chunks.append(module)
+
+    return chunks</code></pre>
+          </figure>
+        </article>
+        <article class="snip">
+          <h3>An index that knows its model</h3>
+          <p>Vectors from different embedding models can&#x27;t be compared. The saved index records which model built it and refuses to load under a different one, instead of quietly returning wrong matches.</p>
+          <figure class="code">
+            <figcaption>src/analyst/index.py · lines 52–59, docstring omitted</figcaption>
+            <pre tabindex="0"><code class="language-python">def load_index(root: Path, *, model: str) -&gt; Index:
+    index = Index.model_validate_json(index_path(root).read_text(encoding=&quot;utf-8&quot;))
+    if index.embedding_model != model:
+        raise WrongModelError(
+            f&quot;Index was built with {index.embedding_model}, but the current model is {model}; re-index&quot;
+        )
+    return index</code></pre>
+          </figure>
+        </article>
+      </div>
+      <div class="codepanel" role="tabpanel" id="panel-stomp" aria-labelledby="tab-stomp" hidden>
+        <article class="snip">
+          <h3>Two threads, one handshake</h3>
+          <p>The C++ client reads the keyboard on the main thread and starts a socket-listener thread only once connected. Login then blocks on a condition variable until the listener sees the server&#x27;s CONNECTED frame.</p>
+          <figure class="code">
+            <figcaption>client/src/StompClient.cpp · lines 87–96 and StompProtocol.cpp · lines 306–316</figcaption>
+            <pre tabindex="0"><code class="language-cpp">// StompClient.cpp: main (keyboard) thread
+if (!handler.connect()) {
+    std::cerr &lt;&lt; &quot;Cannot connect to &quot; &lt;&lt; host &lt;&lt; &quot;:&quot; &lt;&lt; portSt &lt;&lt; std::endl;
+    return;
+}
+// other thread will listen on the socket, start only after connction to the server
+if(!listener.joinable()){
+    listener = std::thread(StompClient::readFromSocket,std::ref(handler), std::ref(protocol));
+}
+sendFrame(handler,stompFrame);
+protocol.waitForServerResponse(); //wait for connection verification
+
+// StompProtocol.cpp: the listener thread calls notifyServerResponse()
+void StompProtocol::waitForServerResponse(){
+    std::unique_lock&lt;std::mutex&gt; lock(cvMtx_);
+    receiptReceived_ = false;
+    cv_.wait(lock,[this] {return receiptReceived_;});
+}
+
+void StompProtocol::notifyServerResponse(){
+    std::unique_lock&lt;std::mutex&gt; lock(cvMtx_);
+    receiptReceived_ = true;
+    cv_.notify_all();
+}</code></pre>
+          </figure>
+        </article>
+        <article class="snip">
+          <h3>Framing a byte stream</h3>
+          <p>TCP delivers bytes, not messages. On the Java server, the decoder takes one byte at a time and emits a complete STOMP frame only when it reaches the NUL terminator, so the same protocol code runs under both the thread-per-client and the Reactor (NIO) server.</p>
+          <figure class="code">
+            <figcaption>server/…/stomp/StompEncoderDecoder.java · lines 22–35</figcaption>
+            <pre tabindex="0"><code class="language-java">public T decodeNextByte(byte nextByte) {
+    //accumulate
+    string += new String(new byte[]{nextByte}, StandardCharsets.UTF_8);
+
+    //not done
+    if(!string.endsWith(delimiter))
+        return null;
+
+    //done
+    T ret = (T)parse(string);
+    string = &quot;&quot;;
+    return ret;
+}</code></pre>
+          </figure>
+        </article>
+      </div>
+      <div class="codepanel" role="tabpanel" id="panel-dd" aria-labelledby="tab-dd" hidden>
+        <article class="snip">
+          <h3>A covariance-matched Gaussian twin</h3>
+          <p>One thin SVD of the real ResNet features gives their covariance spectrum and a least-squares teacher. Sampling Gaussians with that exact covariance and signal isolates second-order statistics as the only shared ingredient.</p>
+          <figure class="code">
+            <figcaption>double_descent_research.ipynb · cell 9, excerpt</figcaption>
+            <pre tabindex="0"><code class="language-python">U, s, Vt = np.linalg.svd(X_c, full_matrices=False)
+r = int(np.sum(s &gt; 1e-10 * s[0]))              # numerical rank
+U, s, Vt = U[:, :r], s[:r], Vt[:r]
+
+lam = s ** 2 / n_tot                           # eigenvalues of Omega
+theta_0 = Vt.T @ ((U.T @ y_c) / s)             # least-squares teacher via SVD
+teacher_var = np.sum(lam * (Vt @ theta_0) ** 2)   # theta_0^T Omega theta_0
+sigma_sq = max(0.0, y_c @ y_c / n_tot - teacher_var)
+
+
+def sample_twin(n, rng):
+    G = rng.standard_normal((n, r))
+    X_syn = (G * np.sqrt(lam)) @ Vt            # covariance = V diag(lam) V^T = Omega
+    y_syn = X_syn @ theta_0 + rng.normal(0.0, np.sqrt(sigma_sq), n)
+    return X_syn, y_syn</code></pre>
+          </figure>
+        </article>
+        <article class="snip">
+          <h3>Sweeping model size</h3>
+          <p>Project the features onto the first p columns of a random Gaussian matrix, fit min-norm least squares with the pseudo-inverse, and average over seeded splits. The test error spikes where p equals the number of training samples.</p>
+          <figure class="code">
+            <figcaption>double_descent_research.ipynb · cell 12, excerpt</figcaption>
+            <pre tabindex="0"><code class="language-python">for i in range(iterations):
+    X_tr, y_tr, X_te, y_te = split_and_center(X, y, test_size=test_size, seed=i)
+    W = rng.normal(0.0, 1.0 / np.sqrt(d), size=(d, p_values.max()))   # random Gaussian projection
+    for j, p in enumerate(p_values):
+        X_tr_p, X_te_p = X_tr @ W[:, :p], X_te @ W[:, :p]
+        w = np.linalg.pinv(X_tr_p) @ y_tr                             # min-norm least squares
+        train_err[j] += mse(w, X_tr_p, y_tr)
+        test_err[j] += mse(w, X_te_p, y_te)</code></pre>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap section split" aria-label="Education and toolkit">
+      <div class="panel">
+        <h2 class="h-small">Education</h2>
+        <ul class="edu">
+          <li><svg class="ic ic--lg" aria-hidden="true"><use href="#i-cap"/></svg><div><h3>M.Sc. Computer Science, Alonim direct track</h3><p>Ben-Gurion University · accepted · 2027 – July 2028</p></div></li>
+          <li><svg class="ic ic--lg" aria-hidden="true"><use href="#i-cap"/></svg><div><h3>B.Sc. Computer Science, Data Science track (ML &amp; AI)</h3><p>Ben-Gurion University · 2024 – 2027 · Ashalim honors program</p></div></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h2 class="h-small">Toolkit</h2>
+        <p class="toolkit">Python · C++ · Java · PyTorch · NumPy · pandas · scikit-learn · Pydantic · Gemini API · SQLite · Git · multithreading</p>
+        <p class="toolkit__note">Every item here is used in a project or research piece above.</p>
+      </div>
+    </section>
+
+    <section class="band" id="research" aria-labelledby="research-title">
+      <div class="wrap section">
+        <div class="section__head">
+          <h2 id="research-title">Research</h2>
+          <p class="section__aside">Advisor: Dr. Yehuda Dar, Ben-Gurion University</p>
+        </div>
+        <div class="research">
+          <article class="research__item">
+            <h3>Transfer Learning for Canonical Correlation Analysis</h3>
+            <p class="research__when">2026 – present · Python · NumPy</p>
+            <p>CCA finds the directions along which two views of the same data correlate most. With few target samples in high dimension, it overfits. I’m developing a source-free, generic transfer-learning algorithm for CCA, extending prior work on transfer learning for PCA.</p>
+            <ul class="research__facts">
+              <li>Implemented CCA from scratch in Python: whitening, SVD, the generalized eigenproblem. Validated against scikit-learn.</li>
+              <li>Baseline sweep: how many USPS target samples target-only CCA needs before it beats reusing MNIST source weights, across ridge strengths.</li>
+            </ul>
+          </article>
+          <article class="research__item">
+            <h3>Double Descent on Real Image Features</h3>
+            <p class="research__when">2026 · Python · PyTorch · NumPy</p>
+            <p>Does a regression on pretrained image embeddings show double descent because of the data’s second-order statistics alone? I built a Gaussian twin with the exact covariance and linear signal of real ResNet features and compared their learning curves.</p>
+            <ul class="research__facts">
+              <li>Both curves peak at the interpolation threshold, at p = n<sub>train</sub> and n = d, with a bias–variance breakdown.</li>
+              <li>No preprocessing leakage: every split is centered with the training mean only; all runs are seeded.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section" id="grades" aria-labelledby="grades-title">
+      <div class="grades__top">
+        <div>
+          <h2 id="grades-title">Grades</h2>
+          <p class="grades__intro">Every academic course on my B.Sc. transcript, translated from Ben-Gurion University’s record of 13 Oct 2026. The GPA is weighted by credits over the first two years. My yearly average rose from 93.6 in year one to 96.9 in year two.</p>
+        </div>
+        <div class="gpa">
+          <span class="gpa__num">95.28</span>
+          <span class="gpa__lbl">GPA · 86.5 credits earned</span>
+        </div>
+      </div>
+
+      <div class="seg" role="group" aria-label="Order transcript">
+        <button type="button" class="seg__btn" aria-pressed="true" data-view="semester">By semester</button>
+        <button type="button" class="seg__btn" aria-pressed="false" data-view="grade">Highest first</button>
+      </div>
+
+      <div class="transcript" data-view="semester">
+        <section class="sem sem--now">
+          <header class="sem__head"><h3>Fall 2026</h3><span class="sem__avg">In progress</span></header>
+          <ul>
+            <li class="row row--now"><span class="row__name">Intro to Machine Learning</span><span class="row__cr">5 cr</span><span class="row__bar"></span><span class="row__val">In progress</span></li>
+            <li class="row row--now"><span class="row__name">Intro to Deep Learning</span><span class="row__cr">3.5 cr</span><span class="row__bar"></span><span class="row__val">In progress</span></li>
+            <li class="row row--now"><span class="row__name">High-Performance Systems Programming</span><span class="row__cr">2 cr</span><span class="row__bar"></span><span class="row__val">In progress</span></li>
+          </ul>
+        </section>
+        <section class="sem">
+          <header class="sem__head"><h3>Spring 2026</h3><span class="sem__avg">avg 97.45</span></header>
+          <ul>
+            <li class="row" data-g="100"><span class="row__name">Computational Models <em>Ashalim honors</em></span><span class="row__cr">5 cr</span><span class="row__bar"><i></i></span><span class="row__val">100</span></li>
+            <li class="row" data-g="100"><span class="row__name">Probability &amp; Statistics for CS</span><span class="row__cr">5 cr</span><span class="row__bar"><i></i></span><span class="row__val">100</span></li>
+            <li class="row" data-g="98"><span class="row__name">Optimization Methods for Data Science</span><span class="row__cr">4.5 cr</span><span class="row__bar"><i></i></span><span class="row__val">98</span></li>
+            <li class="row" data-g="97"><span class="row__name">Guided Research <em>Alonim program</em></span><span class="row__cr">2 cr</span><span class="row__bar"><i></i></span><span class="row__val">97</span></li>
+            <li class="row" data-g="95"><span class="row__name">Frontiers of CS for Outstanding Students II</span><span class="row__cr">2 cr</span><span class="row__bar"><i></i></span><span class="row__val">95</span></li>
+            <li class="row" data-g="93"><span class="row__name">Principles of Programming Languages</span><span class="row__cr">5 cr</span><span class="row__bar"><i></i></span><span class="row__val">93</span></li>
+          </ul>
+        </section>
+        <section class="sem">
+          <header class="sem__head"><h3>Fall 2025</h3><span class="sem__avg">avg 96.15</span></header>
+          <ul>
+            <li class="row" data-g="100"><span class="row__name">Intro to Probability for CS</span><span class="row__cr">4.5 cr</span><span class="row__bar"><i></i></span><span class="row__val">100</span></li>
+            <li class="row" data-g="98"><span class="row__name">Calculus II</span><span class="row__cr">5 cr</span><span class="row__bar"><i></i></span><span class="row__val">98</span></li>
+            <li class="row" data-g="97"><span class="row__name">Systems Programming</span><span class="row__cr">5 cr</span><span class="row__bar"><i></i></span><span class="row__val">97</span></li>
+            <li class="row" data-g="90"><span class="row__name">Algorithm Design <em>Ashalim honors</em></span><span class="row__cr">5 cr</span><span class="row__bar"><i></i></span><span class="row__val">90</span></li>
+            <li class="row row--pass"><span class="row__name">Origins of Western Culture: Greece</span><span class="row__cr">2 cr</span><span class="row__bar"></span><span class="row__val">Pass</span></li>
+          </ul>
+        </section>
+        <section class="sem">
+          <header class="sem__head"><h3>Summer 2025</h3><span class="sem__avg">avg 93.00</span></header>
+          <ul>
+            <li class="row" data-g="93"><span class="row__name">Discrete Structures &amp; Combinatorics</span><span class="row__cr">5 cr</span><span class="row__bar"><i></i></span><span class="row__val">93</span></li>
+          </ul>
+        </section>
+        <section class="sem">
+          <header class="sem__head"><h3>Spring 2025</h3><span class="sem__avg">avg 93.75</span></header>
+          <ul>
+            <li class="row" data-g="100"><span class="row__name">Mathematical Applications in CS</span><span class="row__cr">1 cr</span><span class="row__bar"><i></i></span><span class="row__val">100</span></li>
+            <li class="row" data-g="95"><span class="row__name">Calculus I</span><span class="row__cr">5 cr</span><span class="row__bar"><i></i></span><span class="row__val">95</span></li>
+            <li class="row" data-g="95"><span class="row__name">Data Structures</span><span class="row__cr">5 cr</span><span class="row__bar"><i></i></span><span class="row__val">95</span></li>
+            <li class="row" data-g="90"><span class="row__name">Linear Algebra II</span><span class="row__cr">5 cr</span><span class="row__bar"><i></i></span><span class="row__val">90</span></li>
+            <li class="row row--pass"><span class="row__name">Intro to Algorithms: Foundations of Probability</span><span class="row__cr">0 cr</span><span class="row__bar"></span><span class="row__val">Pass</span></li>
+          </ul>
+        </section>
+        <section class="sem">
+          <header class="sem__head"><h3>Fall 2024</h3><span class="sem__avg">avg 93.57</span></header>
+          <ul>
+            <li class="row" data-g="100"><span class="row__name">Intro to Logic &amp; Set Theory</span><span class="row__cr">5 cr</span><span class="row__bar"><i></i></span><span class="row__val">100</span></li>
+            <li class="row" data-g="98"><span class="row__name">Linear Algebra I</span><span class="row__cr">5 cr</span><span class="row__bar"><i></i></span><span class="row__val">98</span></li>
+            <li class="row" data-g="88"><span class="row__name">Intro to Computer Science</span><span class="row__cr">5 cr</span><span class="row__bar"><i></i></span><span class="row__val">88</span></li>
+            <li class="row" data-g="86"><span class="row__name">Digital Systems</span><span class="row__cr">3.5 cr</span><span class="row__bar"><i></i></span><span class="row__val">86</span></li>
+            <li class="row row--pass"><span class="row__name">Mathematics Proficiency</span><span class="row__cr">0 cr</span><span class="row__bar"></span><span class="row__val">Pass</span></li>
+          </ul>
+        </section>
+        <section class="sem sem--ranked" hidden>
+          <header class="sem__head"><h3>All graded courses</h3><span class="sem__avg">highest first</span></header>
+          <ul class="ranked"></ul>
+        </section>
+      </div>
+      <p class="grades__foot">Bars run from 80 to 100. Advanced English is exempt, and pass/fail courses don’t count toward the GPA. Not listed: two administrative 0-credit modules (library orientation, a compliance module) and one cancelled late registration that doesn’t count.</p>
+    </section>
+
+    <section class="wrap section" id="about" aria-labelledby="about-title">
+      <div class="section__head">
+        <h2 id="about-title">Experience &amp; service</h2>
+      </div>
+      <ol class="xp">
+        <li><h3>Peer Mentor</h3><p class="xp__where">Ben-Gurion University</p><p>Mentored two struggling students one-on-one in Linear Algebra, Algorithms and Data Structures. Both finished the courses with grades above 85.</p></li>
+        <li><h3>Security Guard</h3><p class="xp__where">High-security government facility · 2022–2024</p><p>Held high security clearance and worked under strict security protocols.</p></li>
+        <li><h3>Platoon Medic</h3><p class="xp__where">IDF</p><p>Led a team of medics, responsible for platoon medical readiness and emergency response.</p></li>
+      </ol>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <h2 class="contact__title" id="contact-title">Let’s talk</h2>
+        <p class="contact__lede">Looking for a student role in software engineering, machine learning or automation. The fastest way to reach me is email.</p>
+        <div class="contact__links">
+          <a class="pill pill--light" href="mailto:ohaddahan500@gmail.com"><svg class="ic"><use href="#i-mail"/></svg> ohaddahan500@gmail.com</a>
+          <a class="pill pill--ghost" href="https://www.linkedin.com/in/ohaddahan" rel="noopener"><svg class="ic"><use href="#i-linkedin"/></svg> LinkedIn</a>
+          <a class="pill pill--ghost" href="https://github.com/oEch0ed" rel="noopener"><svg class="ic"><use href="#i-github"/></svg> GitHub</a>
+          <a class="pill pill--ghost" href="assets/Ohad_Dahan_CV.pdf" download><svg class="ic"><use href="#i-download"/></svg> CV (PDF)</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap foot">
+    <span>© 2026 Ohad Dahan</span>
+    <span>Beersheba, Israel</span>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-clike.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
