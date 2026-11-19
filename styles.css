@@ -178,6 +178,7 @@ ul, ol { padding: 0; list-style: none; }
 .card h3 { font: 800 1.9rem/1 var(--display); text-transform: uppercase; letter-spacing: .005em; }
 .card__meta { font: 500 .72rem/1.4 var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--steel); }
 .card__points { display: grid; gap: 10px; margin-top: 6px; color: var(--ink-2); font-size: .93rem; line-height: 1.55; }
+.card__points code, .snip > p code { font: 400 .86em var(--mono); color: var(--ink); font-variant-ligatures: none; }
 .card__points li { padding-left: 16px; position: relative; }
 .card__points li::before { content: ""; position: absolute; left: 0; top: .72em; width: 6px; height: 1px; background: var(--ink-3); }
 .card__note { font-size: .78rem; color: var(--ink-3); margin-top: 4px; }

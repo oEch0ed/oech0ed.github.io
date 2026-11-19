@@ -114,26 +114,29 @@
                 <rect x="20" y="122" width="96" height="30" rx="6"/><text x="68" y="142">vectors</text>
                 <path d="M68 152v16"/>
                 <rect x="20" y="168" width="96" height="30" rx="6"/><text x="68" y="188">index.json</text>
-                <path d="M116 91h28"/>
-                <rect x="144" y="40" width="236" height="160" rx="8"/>
+                <path d="M116 183h28"/>
+                <rect x="144" y="40" width="246" height="160" rx="8"/>
               </g>
               <g class="art__frames art__code">
-                <text x="158" y="64">def chunk_source(source, path):</text>
-                <text x="158" y="82">    tree = ast.parse(source)</text>
-                <text x="158" y="100">    for node in tree.body:</text>
-                <text x="158" y="118">        ...</text>
-                <text x="158" y="160" class="hi">→ src/analyst/chunk.py:60–76</text>
-                <text x="158" y="180">  kind=function · 1-based lines</text>
+                <text x="156" y="62">q  How does the analyst split</text>
+                <text x="156" y="77">   a Python file into chunks?</text>
+                <text x="156" y="100">top-k by cosine similarity</text>
+                <text x="156" y="118" class="hi">0.731 chunk.py:60–76 chunk_source</text>
+                <text x="156" y="134">0.728 cli.py:49–63   chunk</text>
+                <text x="156" y="150">0.720 chunk.py:18–24 Chunk</text>
+                <text x="156" y="166">0.714 chunk.py:53–57 chunk_file</text>
+                <text x="156" y="188" class="hi">→ answer cites chunk.py:60–76</text>
               </g>
             </svg>
           </figure>
           <div class="card__body">
             <h3>Codebase Analyst</h3>
-            <p class="card__meta">Python · Gemini API · Pydantic · pytest · 2026 · in progress</p>
+            <p class="card__meta">Python · Gemini API · NumPy · Pydantic · Typer · pytest · 2026 · in progress</p>
             <ul class="card__points">
-              <li>An AI agent that answers questions about a codebase, with every claim backed by verified file and line citations.</li>
-              <li>AST-based chunker splits each file into function, class, method and module chunks with exact line ranges, so answers can cite precise locations.</li>
-              <li>Batched Gemini embeddings and a saved index that refuses to load if the embedding model changed. Strictly typed (mypy strict) and unit-tested; retrieval and the answering agent are next.</li>
+              <li>A command-line tool that answers questions about a Python codebase: <code>analyst index</code> embeds the repo once, <code>analyst ask</code> retrieves the most relevant code and has Gemini answer from it, citing files and line ranges.</li>
+              <li>AST-based chunker splits each file into function, class, method and module chunks with exact line ranges, so answers can point at precise locations.</li>
+              <li>Cosine-similarity top-k retrieval over a saved index that records its embedding model and vector size, and refuses queries that don't match.</li>
+              <li>59 unit tests run against faked Gemini clients, with no network; real API calls back off and retry on rate limits. Next: checking every citation against the retrieved code.</li>
             </ul>
           </div>
         </article>
@@ -229,16 +232,63 @@
         </article>
         <article class="snip">
           <h3>An index that knows its model</h3>
-          <p>Vectors from different embedding models can&#x27;t be compared. The saved index records which model built it and refuses to load under a different one, instead of quietly returning wrong matches.</p>
+          <p>Vectors from different embedding models can&#x27;t be compared. The saved index records which model built it and refuses to load under a different one, and retrieval rejects a query vector of the wrong size, instead of quietly returning wrong matches.</p>
           <figure class="code">
-            <figcaption>src/analyst/index.py · lines 52–59, docstring omitted</figcaption>
+            <figcaption>src/analyst/index.py · lines 50–57, docstring omitted</figcaption>
             <pre tabindex="0"><code class="language-python">def load_index(root: Path, *, model: str) -&gt; Index:
     index = Index.model_validate_json(index_path(root).read_text(encoding=&quot;utf-8&quot;))
     if index.embedding_model != model:
-        raise WrongModelError(
+        raise StaleError(
             f&quot;Index was built with {index.embedding_model}, but the current model is {model}; re-index&quot;
         )
     return index</code></pre>
+          </figure>
+        </article>
+        <article class="snip">
+          <h3>Top-k without a full sort</h3>
+          <p>Retrieval scores every chunk against the question by cosine similarity, then uses <code>argpartition</code> to pull out the k best in linear time and sorts only those. Guards turn an empty index, a bad k or a vector-size mismatch into clear errors.</p>
+          <figure class="code">
+            <figcaption>src/analyst/retrieve.py · lines 27–42, docstring omitted</figcaption>
+            <pre tabindex="0"><code class="language-python">def topk(index:Index, query:Vector, k:int) -&gt; list[int]:
+    if k &lt; 1:
+        raise ValueError(f&quot;k must be at least 1, got {k}&quot;)
+    if not index.entries:
+        return []
+    if len(query) != index.dimensions:
+        raise StaleError(
+            f&quot;Query has {len(query)} dimensions but the index has &quot;
+            f&quot;{index.dimensions}; re-index&quot;
+        )
+    k = min(k,len(index.entries))
+    matrix = [entry.vector for entry in index.entries]
+    cosines = cosine_similarity(matrix,[query])[:, 0]
+    top = np.argpartition(-cosines,k - 1)[:k]
+    return top[np.argsort(-cosines[top])].tolist()</code></pre>
+          </figure>
+        </article>
+        <article class="snip">
+          <h3>Asking it a question</h3>
+          <p>A real run against this repository. The question is embedded, the closest chunks are retrieved, and Gemini answers using only that code, citing a file and line range for each step. Citations aren&#x27;t machine-checked yet; that&#x27;s the next step.</p>
+          <figure class="code">
+            <figcaption>analyst ask · real output, Nov 19 2026 · trimmed</figcaption>
+            <pre tabindex="0"><code>$ analyst ask \
+    &quot;How does the analyst split a Python file into chunks?&quot;
+
+Based on the provided codebase, the analyst splits a Python
+file into chunks by parsing its source code into an Abstract
+Syntax Tree (AST) using `ast.parse` and dividing its top-level
+nodes and class structures into specific `Chunk` kinds
+(`function`, `class`, `method`, and `module`).
+
+1. **Reading the file:**
+   - `chunk_file` reads the source code from disk using the
+     provided `FileInfo` and passes it to `chunk_source`
+     (`src/analyst/chunk.py:53-57`).
+
+2. **Processing AST nodes (`chunk_source`):**
+   - The source is parsed into an AST
+     (`src/analyst/chunk.py:60-76`).
+   […]</code></pre>
           </figure>
         </article>
       </div>
