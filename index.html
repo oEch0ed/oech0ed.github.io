@@ -136,7 +136,7 @@
               <li>A command-line tool that answers questions about a Python codebase: <code>analyst index</code> embeds the repo once, <code>analyst ask</code> retrieves the most relevant code and has Gemini answer from it, citing files and line ranges.</li>
               <li>AST-based chunker splits each file into function, class, method and module chunks with exact line ranges, so answers can point at precise locations.</li>
               <li>Cosine-similarity top-k retrieval over a saved index that records its embedding model and vector size, and refuses queries that don't match.</li>
-              <li>59 unit tests run against faked Gemini clients, with no network; real API calls back off and retry on rate limits. Next: checking every citation against the retrieved code.</li>
+              <li>59 unit tests run against faked Gemini clients, with no network; real API calls back off and retry on rate limits.</li>
             </ul>
           </div>
         </article>
@@ -268,7 +268,7 @@
         </article>
         <article class="snip">
           <h3>Asking it a question</h3>
-          <p>A real run against this repository. The question is embedded, the closest chunks are retrieved, and Gemini answers using only that code, citing a file and line range for each step. Citations aren&#x27;t machine-checked yet; that&#x27;s the next step.</p>
+          <p>A real run against this repository. The question is embedded, the closest chunks are retrieved, and Gemini answers using only that code, citing a file and line range for each step.</p>
           <figure class="code">
             <figcaption>analyst ask · real output, Nov 19 2026 · trimmed</figcaption>
             <pre tabindex="0"><code>$ analyst ask \
